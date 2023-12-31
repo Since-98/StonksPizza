@@ -1,3 +1,117 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+body {
+    
+    font-family: 'Open Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+
+}
+
+.main-header {
+    background-color: #fff;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    max-width: 150px;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav li {
+    margin-right: 20px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+}
+nav li:last-child a {
+    background: orange;
+}
+
+.login-btn a {
+    background-color: #fff;
+    color: #fcb001;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.menu-icon {
+    cursor: pointer;
+    display: none;
+    flex-direction: column;
+}
+
+.bar {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
+}
+
+@media only screen and (max-width: 768px) {
+    .main-nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #fcb001;
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+        z-index: 1;
+    }
+
+    .main-nav ul.show {
+        display: flex;
+    }
+
+    .main-nav li {
+        margin: 0;
+    }
+
+    .menu-icon {
+        display: flex;
+    }
+}
+.section.hero
+{
+    background: blue;
+}
+.size{
+    background-color: #fff;
+}
+.add-to-cart{
+    border: 2px solid #fcb001;
+    color: #fcb001;
+    transition:ease-in 100ms;
+
+    &:hover{
+       background-color: #ffb300;
+       border-color:gray ;
+       color: #fff;
+    }
+
+}

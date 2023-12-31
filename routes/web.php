@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PizzaController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\menuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +16,22 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/shop', ['uses'=> 'ProductController@getIndex', 'as'=> 'product.index']);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/seller/{id}', ['uses'=> 'ProductController@displayProducts', 'as'=> 'product.seller']);
+
+
+
+
+
+
+
+Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('/index', [menuController::class, 'index']);
+Route::get('/order/create', 'OrderController@create')->name('order.create');
+Route::get('/pizzas', [PizzaController::class, 'index'])->name('pizzas.index');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
