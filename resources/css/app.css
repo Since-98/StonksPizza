@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
 body {
-    
+ 
     font-family: 'Open Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
 
@@ -50,25 +50,7 @@ nav li:last-child a {
     background: orange;
 }
 
-.login-btn a {
-    background-color: #fff;
-    color: #fcb001;
-    padding: 10px 15px;
-    border-radius: 5px;
-}
 
-.menu-icon {
-    cursor: pointer;
-    display: none;
-    flex-direction: column;
-}
-
-.bar {
-    width: 30px;
-    height: 3px;
-    background-color: #fff;
-    margin: 5px 0;
-}
 
 @media only screen and (max-width: 768px) {
     .main-nav ul {
@@ -83,25 +65,6 @@ nav li:last-child a {
         text-align: center;
         z-index: 1;
     }
-
-    .main-nav ul.show {
-        display: flex;
-    }
-
-    .main-nav li {
-        margin: 0;
-    }
-
-    .menu-icon {
-        display: flex;
-    }
-}
-.section.hero
-{
-    background: blue;
-}
-.size{
-    background-color: #fff;
 }
 .add-to-cart{
     border: 2px solid #fcb001;
@@ -114,4 +77,11 @@ nav li:last-child a {
        color: #fff;
     }
 
+}
+.btn-primary{
+background-color: #ffb300;
+transition: smooth;
+&:hover{
+    background-color: #ffb300;
+}
 }

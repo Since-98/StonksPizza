@@ -8,21 +8,15 @@
     @include('header')
 </head>
 <body >
-    <section class="hero">
+    <section class="hero py-16">
         <div class="container mx-auto flex items-center justify-between">
-            <div>
-                <a href="{{ route('order.create', ['delivery' => true]) }}">
-                    <span class="text-8xl font-semibold block">🛵</span>
-                    <span class="block text-lg">Delivery</span>
-                </a>
-                <br>
-                <a href="{{ route('order.create', ['pickup' => true]) }}">
-                    <span class="text-8xl font-semibold block">🏠</span>
-                    <span class="block text-lg">Pickup</span>
-                </a>
+            <div class="w-1/2">
+              <h6 class="text-6xl"><em>Are you hungry?</em></h6>
+              <h1 class="text-6xl  font-bold">Don't wait</h1>
+              <button class="px-6 py-2 rounded-full text-white font-bold mt-4 btn-primary">Order Now</button>
             </div>
             <div>
-                <img src="Photos\pizza.png" alt="">
+                <img src="https://i.pinimg.com/originals/8f/0b/80/8f0b805fb3398075b6f8e10593136eaa.jpg" alt="">
             </div>
         </div>
     </section>
@@ -131,7 +125,18 @@
         <div class="pizza-item text-center">
             <img class="h-40 mb-4 mx-auto" src="Photos\Pizzani-Pizza-3-600x477.jpg" alt="">
             <h2 class="mb-2 text-lg">Margherita</h2>
-            <span class="size py-1 px-4 rounded-full uppercase text-xs">small</span>
+            <label class="mr-4">
+                <input type="radio" name="size" value="small" checked>
+                Small
+            </label>
+            <label class="mr-4">
+                <input type="radio" name="size" value="medium">
+                Medium
+            </label>
+            <label>
+                <input type="radio" name="size" value="large">
+                Large
+            </label>
             <div class="flex items-center justify-center mt-4">
                 <div class="price-and-cart flex items-center">
                     <span class="font-bold text-lg mr-4">£6</span>
@@ -145,5 +150,6 @@
 
     </div>
     </section>
+    @include('footer')
 </body>
 </html>
