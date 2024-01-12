@@ -1,26 +1,21 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-wvfXKvMV6Zvfeqs2MYJy0a7LxC0b5HJQaG8bKFkQtWyhj5dP97aL2r4gBsN5uy6U2X5l5bzhTjnLqjwG7ekPsh2g=="
-    crossorigin="anonymous" />
-    <footer class="bg-green-400 text-white py-8">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="logo">
-                <img src="{{ asset('Photos\WhatsApp Image 2023-12-18 at 13.40.45_d35ca318.png') }}" alt="stonk's Pizza Logo">
-            </div>
-            <div class="footer-links">
-                <a href="#">Home</a>
-                <a href="#">Menu</a>
-                <a href="#">Locations</a>
-                <a href="#">Contact Us</a>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-W4QY54xVRfHsRwlVhvOG+CpZbS8P3z5zjwkoTfkh+Jz4t50pzjjI6Cd2eh2KRdkLmf5dT2Fd8A8eylB6ztPLuA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-                <!-- Social Media Links with Font Awesome Icons -->
-                <div class="social-media">
-                    <a href="https://www.facebook.com/your-page" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                    <a href="https://twitter.com/your-twitter" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <!-- Add more social media icons as needed -->
-                </div>
-            </div>
+<footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto flex justify-between">
+        <div class="footer-section">
+            <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+            <p>Email: info@stonkspizza.com</p>
+            <p>Phone: +1 (555) 123-4567</p>
         </div>
-    </footer>
+        <div class="footer-section">
+            <h3 class="text-lg font-bold mb-4">Follow Us</h3>
+            <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="#" class="text-gray-300 hover:text-white ml-4"><i class="fab fa-twitter"></i> Twitter</a>
+            <a href="#" class="text-gray-300 hover:text-white ml-4"><i class="fab fa-instagram"></i> Instagram</a>
+        </div>
+        <div class="footer-section">
+            <h3 class="text-lg font-bold mb-4">Location</h3>
+            <p>123 Main St, Cityville, Country</p>
+        </div>
+    </div>
+</footer>

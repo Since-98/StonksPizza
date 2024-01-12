@@ -19,18 +19,18 @@ use App\Http\Controllers\menuController;
 
 
 
-//Route::redirect('login', '/login');
+Route::get('/', function () {
+    return view('welcome');
+  });
 
-//Auth::routes(['register' => false]);
-
-Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('home', [HomeController::class, 'home'])->name('home');
 Route::get('/index', [menuController::class, 'index']);
 Route::get('/order/create', 'OrderController@create')->name('order.create');
 Route::get('/pizzas', [PizzaController::class, 'index'])->name('pizzas.index');
 
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('home');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

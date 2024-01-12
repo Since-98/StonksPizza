@@ -17,8 +17,8 @@
             <ul>
                 <li><a href="#">Menu</a></li>
                 <li><a href="#">Locations</a></li>
-                <li><a href="#">Deals</a></li>
                 <li><a href="#">Track Order</a></li>
+                <li><a href="#">Create account</a></li>
                 <li> <a href="#" >Login</a></li>
                 <li><a href="#" class="inline-block px-2 py-1 rounded-full"><img src="Photos\cart.png" alt=""></a></li>
 

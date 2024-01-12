@@ -16,7 +16,7 @@
               <button class="px-6 py-2 rounded-full text-white font-bold mt-4 btn-primary">Order Now</button>
             </div>
             <div>
-                <img src="https://i.pinimg.com/originals/8f/0b/80/8f0b805fb3398075b6f8e10593136eaa.jpg" alt="">
+                <img src="Photos\pizza.png" alt="">
             </div>
         </div>
     </section>
@@ -27,13 +27,17 @@
         <div class="pizza-item text-center">
             <img class="h-40 mb-4 mx-auto" src="Photos\Pizzani-Pizza-3-600x477.jpg" alt="">
             <h2 class="mb-2 text-lg">Margherita</h2>
-            <span class="size py-1 px-4 rounded-full uppercase text-xs">small</span>
+            <select class="size py-1 px-4 rounded-full uppercase text-xs">
+                <option value="small">Klein</option>
+                <option value="medium">Medium</option>
+                <option value="large">Groot</option>
+            </select>
             <div class="flex items-center justify-center mt-4">
                 <div class="price-and-cart flex items-center">
                     <span class="font-bold text-lg mr-4">£6</span>
                     <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
                         <span>+</span>
-                        <span class="ml-2">Add</span>
+                        <span class="ml-2">Toevoegen</span>
                     </button>
                 </div>
             </div>
@@ -41,13 +45,17 @@
         <div class="pizza-item text-center">
             <img class="h-40 mb-4 mx-auto" src="Photos\Pizzani-Pizza-3-600x477.jpg" alt="">
             <h2 class="mb-2 text-lg">Margherita</h2>
-            <span class="size py-1 px-4 rounded-full uppercase text-xs">small</span>
+            <select class="size py-1 px-4 rounded-full uppercase text-xs">
+                <option value="small">Klein</option>
+                <option value="medium">Medium</option>
+                <option value="large">Groot</option>
+            </select>
             <div class="flex items-center justify-center mt-4">
                 <div class="price-and-cart flex items-center">
                     <span class="font-bold text-lg mr-4">£6</span>
                     <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
                         <span>+</span>
-                        <span class="ml-2">Add</span>
+                        <span class="ml-2">Toevoegen</span>
                     </button>
                 </div>
             </div>
@@ -55,13 +63,17 @@
         <div class="pizza-item text-center">
             <img class="h-40 mb-4 mx-auto" src="Photos\Pizzani-Pizza-3-600x477.jpg" alt="">
             <h2 class="mb-2 text-lg">Margherita</h2>
-            <span class="size py-1 px-4 rounded-full uppercase text-xs">small</span>
+            <select class="size py-1 px-4 rounded-full uppercase text-xs">
+                <option value="small">Klein</option>
+                <option value="medium">Medium</option>
+                <option value="large">Groot</option>
+            </select>
             <div class="flex items-center justify-center mt-4">
                 <div class="price-and-cart flex items-center">
                     <span class="font-bold text-lg mr-4">£6</span>
                     <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
                         <span>+</span>
-                        <span class="ml-2">Add</span>
+                        <span class="ml-2">Toevoegen</span>
                     </button>
                 </div>
             </div>
@@ -69,13 +81,17 @@
         <div class="pizza-item text-center">
             <img class="h-40 mb-4 mx-auto" src="Photos\Pizzani-Pizza-3-600x477.jpg" alt="">
             <h2 class="mb-2 text-lg">Margherita</h2>
-            <span class="size py-1 px-4 rounded-full uppercase text-xs">small</span>
+            <select class="size py-1 px-4 rounded-full uppercase text-xs">
+                <option value="small">Klein</option>
+                <option value="medium">Medium</option>
+                <option value="large">Groot</option>
+            </select>
             <div class="flex items-center justify-center mt-4">
                 <div class="price-and-cart flex items-center">
                     <span class="font-bold text-lg mr-4">£6</span>
                     <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
                         <span>+</span>
-                        <span class="ml-2">Add</span>
+                        <span class="ml-2">Toevoegen</span>
                     </button>
                 </div>
             </div>
@@ -83,13 +99,17 @@
         <div class="pizza-item text-center">
             <img class="h-40 mb-4 mx-auto" src="Photos\Pizzani-Pizza-3-600x477.jpg" alt="">
             <h2 class="mb-2 text-lg">Margherita</h2>
-            <span class="size py-1 px-4 rounded-full uppercase text-xs">small</span>
+            <select class="size py-1 px-4 rounded-full uppercase text-xs">
+                <option value="small">Klein</option>
+                <option value="medium">Medium</option>
+                <option value="large">Groot</option>
+            </select>
             <div class="flex items-center justify-center mt-4">
                 <div class="price-and-cart flex items-center">
                     <span class="font-bold text-lg mr-4">£6</span>
                     <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
                         <span>+</span>
-                        <span class="ml-2">Add</span>
+                        <span class="ml-2">Toevoegen</span>
                     </button>
                 </div>
             </div>
@@ -97,13 +117,17 @@
         <div class="pizza-item text-center">
             <img class="h-40 mb-4 mx-auto" src="Photos\Pizzani-Pizza-3-600x477.jpg" alt="">
             <h2 class="mb-2 text-lg">Margherita</h2>
-            <span class="size py-1 px-4 rounded-full uppercase text-xs">small</span>
+            <select class="size py-1 px-4 rounded-full uppercase text-xs">
+                <option value="small">Klein</option>
+                <option value="medium">Medium</option>
+                <option value="large">Groot</option>
+            </select>
             <div class="flex items-center justify-center mt-4">
                 <div class="price-and-cart flex items-center">
                     <span class="font-bold text-lg mr-4">£6</span>
                     <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
                         <span>+</span>
-                        <span class="ml-2">Add</span>
+                        <span class="ml-2">Toevoegen</span>
                     </button>
                 </div>
             </div>
@@ -111,13 +135,17 @@
         <div class="pizza-item text-center">
             <img class="h-40 mb-4 mx-auto" src="Photos\Pizzani-Pizza-3-600x477.jpg" alt="">
             <h2 class="mb-2 text-lg">Margherita</h2>
-            <span class="size py-1 px-4 rounded-full uppercase text-xs">small</span>
+            <select class="size py-1 px-4 rounded-full uppercase text-xs">
+                <option value="small">Klein</option>
+                <option value="medium">Medium</option>
+                <option value="large">Groot</option>
+            </select>
             <div class="flex items-center justify-center mt-4">
                 <div class="price-and-cart flex items-center">
                     <span class="font-bold text-lg mr-4">£6</span>
                     <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
                         <span>+</span>
-                        <span class="ml-2">Add</span>
+                        <span class="ml-2">Toevoegen</span>
                     </button>
                 </div>
             </div>
@@ -126,23 +154,17 @@
             <img class="h-40 mb-4 mx-auto" src="Photos\Pizzani-Pizza-3-600x477.jpg" alt="">
             <h2 class="mb-2 text-lg">Margherita</h2>
             <label class="mr-4">
-                <input type="radio" name="size" value="small" checked>
-                Small
-            </label>
-            <label class="mr-4">
-                <input type="radio" name="size" value="medium">
-                Medium
-            </label>
-            <label>
-                <input type="radio" name="size" value="large">
-                Large
-            </label>
+                <select class="size py-1 px-4 rounded-full uppercase text-xs">
+                    <option value="small">Klein</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Groot</option>
+                </select>
             <div class="flex items-center justify-center mt-4">
                 <div class="price-and-cart flex items-center">
                     <span class="font-bold text-lg mr-4">£6</span>
                     <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
                         <span>+</span>
-                        <span class="ml-2">Add</span>
+                        <span class="ml-2">Toevoegen</span>
                     </button>
                 </div>
             </div>
@@ -150,6 +172,7 @@
 
     </div>
     </section>
+
     @include('footer')
 </body>
 </html>
