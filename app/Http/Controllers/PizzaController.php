@@ -10,6 +10,6 @@ class PizzaController extends Controller
     {
 
 
-        return view('pizzas.pizza');
+        return view('pizza.index');
 }
 }

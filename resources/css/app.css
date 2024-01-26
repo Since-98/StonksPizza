@@ -11,7 +11,7 @@ body {
 }
 
 .main-header {
-    background-color: #fff;
+    background-color: #145a56;
     color: #fff;
     padding: 10px;
     display: flex;
@@ -26,6 +26,7 @@ body {
 .main-nav {
     display: flex;
     align-items: center;
+
 }
 
 .main-nav ul {
@@ -44,6 +45,7 @@ body {
     color: black;
     font-weight: bold;
     font-size: 14px;
+    color: #fff;
 }
 nav li:last-child a {
     background: orange;
@@ -84,3 +86,21 @@ transition: smooth;
     background-color: #ffb300;
 }
 }
+.footer
+{
+    background-color: #145a56;
+    font-size: 14px;
+    color: #fff;
+
+}
+.fa {
+    padding: 10px;
+    
+    width: 40px;
+    text-align: center;
+    text-decoration: none;
+  }
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }

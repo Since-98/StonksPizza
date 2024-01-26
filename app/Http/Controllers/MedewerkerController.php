@@ -61,13 +61,12 @@ class MedewerkerController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
-    {
-        $medewerker = medewerker::find($id);
+{
+    $medewerker = medewerker::find($id);
 
-            return view('Manager.Edit');
+    return view('Manager.Edit', ['medewerker' => $medewerker]);
+}
 
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -81,17 +80,17 @@ class MedewerkerController extends Controller
             'functie' => 'required'
 
         ]);
-       // dd($song);
-        $medwerker = medewerker::find($request->id);
+
+        $medewerker = medewerker::find($request->id);
         $medewerker->update(['voornaam' => $request->voornaam, 'achternaam' => $request->achternaam, 'inkomen' => $request->inkomen, 'functie' => $request->functie ]);
-        return redirect(route('Manager.Index'))->with('geslaagd', 'verandering toegepast');
+        return redirect(route('manager'))->with('geslaagd', 'verandering toegepast');
     }
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id) {
-        //dd($song);
+
     $medewerker = medewerker::find($id);
     $medewerker->delete();
   return redirect(route('Manager.Index'))->with('geslaagd', 'verwijdering toegepast'); }

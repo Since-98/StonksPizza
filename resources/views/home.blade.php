@@ -1,182 +1,62 @@
-<!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>stonk's Pizza</title>
-    @include('components.header')
-</head>
-<body >
+@extends('layouts.app-layout')
+@include('components.header')
 
-        <div class="container mx-auto flex items-center justify-between">
-            <div class="w-1/2">
-              <h6 class="text-6xl"><em>Are you hungry?</em></h6>
-              <h1 class="text-6xl  font-bold">Don't wait</h1>
-              <button class="px-6 py-2 rounded-full text-white font-bold mt-4 btn-primary">Order Now</button>
-            </div>
-            <div>
-                <img src="https://img.freepik.com/free-photo/hawaiian-pizza_1203-2455.jpg?size=626&ext=jpg&ga=GA1.1.1412446893.1704931200&semt=ais" alt="">
-            </div>
-        </div>
-    </section>
-    <section class="menu container mx-auto py-8">
-        <h1 class="text-xl font-bold mb-8">All pizzas</h1>
-        <div class="grid grid-cols-4 col-gap-12 row-gap-18">
-        <div class="pizza-item text-center">
-            <img class="h-40 mb-4 mx-auto" src="Photos\Pizzani-Pizza-3-600x477.jpg" alt="">
-            <h2 class="mb-2 text-lg"></h2>
-            <select class="size py-1 px-4 rounded-full uppercase text-xs">
-                <option value="small"></option>
-                <option value="medium"></option>
-                <option value="large"></option>
-            </select>
-            <div class="flex items-center justify-center mt-4">
-                <div class="price-and-cart flex items-center">
-                    <span class="font-bold text-lg mr-4"></span>
-                    <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                        <span>+</span>
-                        <span class="ml-2">Toevoegen</span>
-                    </button>
-                </div>
+@section('content')
+<!-- Hero Section -->
+<div class="hero-section relative h-screen flex items-center bg-gray-900 text-white">
+    <div class="hero-overlay absolute inset-0 bg-black opacity-60"></div>
+    <div class="hero-content text-center z-10">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4">Savor the Flavor: Pizza Delivered to You</h1>
+        <p class="text-lg md:text-xl mb-8">Order online or pick up – the perfect pizza experience awaits!</p>
+        <div class="cta-section text-center mt-12 bg-black-900 text-white py-8">
+            <div class="flex items-center justify-center space-x-4">
+                <a href="{{ route('menu') }}" class="bg-green-500 text-white py-6 px-8 rounded-full font-semibold hover:bg-green-400 transition duration-300">🛵Order Online</a>
+                <p class="text-sm text-white-300">or</p>
+                <a href="{{ route('menu') }}" class="bg-yellow-500 text-black py-6 px-8 rounded-full font-semibold hover:bg-yellow-400 transition duration-300">
+                    🏡 Pick Up</a>
             </div>
         </div>
-
-        <div class="pizza-item text-center">
-            <img class="h-40 mb-4 mx-auto" src="Photos\Pizzani-Pizza-3-600x477.jpg" alt="">
-            <h2 class="mb-2 text-lg">Margherita</h2>
-            <select class="size py-1 px-4 rounded-full uppercase text-xs">
-                <option value="small">Klein</option>
-                <option value="medium">Medium</option>
-                <option value="large">Groot</option>
-            </select>
-            <div class="flex items-center justify-center mt-4">
-                <div class="price-and-cart flex items-center">
-                    <span class="font-bold text-lg mr-4">£6</span>
-                    <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                        <span>+</span>
-                        <span class="ml-2">Toevoegen</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="pizza-item text-center">
-            <img class="h-40 mb-4 mx-auto" src="Photos\Pizzani-Pizza-3-600x477.jpg" alt="">
-            <h2 class="mb-2 text-lg">Margherita</h2>
-            <select class="size py-1 px-4 rounded-full uppercase text-xs">
-                <option value="small">Klein</option>
-                <option value="medium">Medium</option>
-                <option value="large">Groot</option>
-            </select>
-            <div class="flex items-center justify-center mt-4">
-                <div class="price-and-cart flex items-center">
-                    <span class="font-bold text-lg mr-4">£6</span>
-                    <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                        <span>+</span>
-                        <span class="ml-2">Toevoegen</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="pizza-item text-center">
-            <img class="h-40 mb-4 mx-auto" src="Photos\Pizzani-Pizza-3-600x477.jpg" alt="">
-            <h2 class="mb-2 text-lg">Margherita</h2>
-            <select class="size py-1 px-4 rounded-full uppercase text-xs">
-                <option value="small">Klein</option>
-                <option value="medium">Medium</option>
-                <option value="large">Groot</option>
-            </select>
-            <div class="flex items-center justify-center mt-4">
-                <div class="price-and-cart flex items-center">
-                    <span class="font-bold text-lg mr-4">£6</span>
-                    <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                        <span>+</span>
-                        <span class="ml-2">Toevoegen</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="pizza-item text-center">
-            <img class="h-40 mb-4 mx-auto" src="Photos\Pizzani-Pizza-3-600x477.jpg" alt="">
-            <h2 class="mb-2 text-lg">Margherita</h2>
-            <select class="size py-1 px-4 rounded-full uppercase text-xs">
-                <option value="small">Klein</option>
-                <option value="medium">Medium</option>
-                <option value="large">Groot</option>
-            </select>
-            <div class="flex items-center justify-center mt-4">
-                <div class="price-and-cart flex items-center">
-                    <span class="font-bold text-lg mr-4">£6</span>
-                    <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                        <span>+</span>
-                        <span class="ml-2">Toevoegen</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="pizza-item text-center">
-            <img class="h-40 mb-4 mx-auto" src="Photos\Pizzani-Pizza-3-600x477.jpg" alt="">
-            <h2 class="mb-2 text-lg">Margherita</h2>
-            <select class="size py-1 px-4 rounded-full uppercase text-xs">
-                <option value="small">Klein</option>
-                <option value="medium">Medium</option>
-                <option value="large">Groot</option>
-            </select>
-            <div class="flex items-center justify-center mt-4">
-                <div class="price-and-cart flex items-center">
-                    <span class="font-bold text-lg mr-4">£6</span>
-                    <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                        <span>+</span>
-                        <span class="ml-2">Toevoegen</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="pizza-item text-center">
-            <img class="h-40 mb-4 mx-auto" src="Photos\Pizzani-Pizza-3-600x477.jpg" alt="">
-            <h2 class="mb-2 text-lg">Margherita</h2>
-            <select class="size py-1 px-4 rounded-full uppercase text-xs">
-                <option value="small">Klein</option>
-                <option value="medium">Medium</option>
-                <option value="large">Groot</option>
-            </select>
-            <div class="flex items-center justify-center mt-4">
-                <div class="price-and-cart flex items-center">
-                    <span class="font-bold text-lg mr-4">£6</span>
-                    <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                        <span>+</span>
-                        <span class="ml-2">Toevoegen</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="pizza-item text-center">
-            <img class="h-40 mb-4 mx-auto" src="Photos\Pizzani-Pizza-3-600x477.jpg" alt="">
-            <h2 class="mb-2 text-lg">Margherita</h2>
-            <label class="mr-4">
-                <select class="size py-1 px-4 rounded-full uppercase text-xs">
-                    <option value="small">Klein</option>
-                    <option value="medium">Medium</option>
-                    <option value="large">Groot</option>
-                </select>
-            <div class="flex items-center justify-center mt-4">
-                <div class="price-and-cart flex items-center">
-                    <span class="font-bold text-lg mr-4">£6</span>
-                    <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                        <span>+</span>
-                        <span class="ml-2">Toevoegen</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-
     </div>
-    </section>
+    <img src="Photos\0006_Foorn_HeroSingleItemsSquare-21.jpg" class="hero-image object-cover w-full h-full" alt="Pizza Hero Image">
+</div>
 
-    @include('components.footer')
-</body>
-</html>
+<!-- Features Section -->
+<div class="features-section container mx-auto mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    @php
+    $features = [
+        [
+            'icon' => '<i class="fas fa-clock text-2xl"></i>',
+            'title' => 'Fast Delivery',
+            'description' => 'Satisfy your cravings in no time!',
+        ],
+        [
+            'icon' => '<i class="fas fa-hand-holding-heart text-2xl"></i>',
+            'title' => 'Quality Ingredients',
+            'description' => 'Only the finest ingredients go into our pizzas.',
+        ],
+        [
+            'icon' => '<i class="fas fa-dollar-sign text-2xl"></i>',
+            'title' => 'Affordable Prices',
+            'description' => 'Delicious pizzas that won\'t break the bank.',
+        ],
+        [
+            'icon' => '<i class="fas fa-utensils text-2xl"></i>',
+            'title' => 'Variety of Options',
+            'description' => 'Explore a diverse menu of mouthwatering pizzas.',
+        ],
+    ];
+    @endphp
+
+    @foreach($features as $feature)
+    <div class="feature-item text-center p-6 bg-white rounded-lg shadow-md transition transform hover:scale-105">
+        <div class="feature-icon bg-yellow-500 rounded-full p-3 mx-auto">
+            {!! $feature['icon'] !!}
+        </div>
+        <p class="text-lg font-semibold mt-4">{{ $feature['title'] }}</p>
+        <p class="text-sm">{{ $feature['description'] }}</p>
+    </div>
+    @endforeach
+</div>
+
+@include('components.footer')
+@endsection

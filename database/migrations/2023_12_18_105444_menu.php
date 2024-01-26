@@ -19,9 +19,11 @@ return new class extends Migration
                     $table->string("ingrediënten");
                     $table->integer("hoeveelheid");
                     $table->integer("prijs");
+                    $table->string("grootte");
+                    $table->text("plaatje");
                     $table->timestamps();
                 });
-            
+
 
     }
 

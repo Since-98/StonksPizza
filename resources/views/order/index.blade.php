@@ -1,55 +1,64 @@
+@extends('layouts.app-layout')
+@include('components.header')
+@section('content')
+          <main class="my-8">
+            <div class="container px-6 mx-auto  pt-[70px]">
+                <div class="flex justify-center my-6">
+                    <div class="flex flex-col w-full p-8 text-gray-800 bg-white shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5">
+                      @if ($message = Session::get('success'))
+                          <div class="p-4 mb-3 bg-green-400 rounded">
+                              <p class="text-green-800">{{ $message }}</p>
+                          </div>
+                      @endif
+                        <h3 class="text-3xl text-bold">Orders</h3>
+                      <div class="flex-1">
 
-<main style="margin-top: 2vw;">
-    <img id="refresh-button" src="{{asset('images/10.png')}}" onClick="window.location.reload();"/>
-    <p id="order-status-label">Bestelstatus:</p>
-    <div class="order-status">
-        @if($order->status->id == 1)
-            <img src="{{asset('Photos\4.png')}}"/>
-            <p>Besteld</p>
-        @elseif($order->status->id == 2)
-            <img src="{{asset('Photos\4.png')}}"/>
-            <p>Wordt bereid</p>
-        @elseif($order->status->id == 3)
-            <img src="{{asset('images/7.png')}}"/>
-            <p>In oven</p>
-        @elseif($order->status->id == 4)
-            <img src="{{asset('images/1.png')}}"/>
-            <p>Onderweg</p>
-        @elseif($order->status->id == 5)
-            <img src="{{asset('images/9.png')}}"/>
-            <p>Bezorgd</p>
-        @elseif($order->status->id == 6)
-            <img src="{{asset('images/11.png')}}"/>
-            <p>Geannuleerd</p>
-        @endif
-    </div>
-    <div class="order-items-container" >
-        @if($order->orderitems != null)
-            @foreach($order->orderitems as $orderitem_id => $orderitem)
-                <div class="order-item">
-                    <img src="{{ asset('images/3.png') }}">
-                    <div class="order-item-description">
-                        <p>Pizza {{$orderitem->pizza->name}} - {{$orderitem->size->name}}</p>
-                        @foreach($orderitem->ingredients as $ingredient)
-                            <p>{{ $ingredient->name }}</p>
-                        @endforeach
+                        <table class="w-full text-sm lg:text-base" cellspacing="0">
+                          <thead>
+                            <tr class="h-12 uppercase">
+                              <th class="text-left">Name</th>
+                              <th class="hidden text-left md:table-cell"> Status </th>
+                              <th class="hidden text-mid md:table-cell"> Prijs</th>
+                              <th class="hidden text-right md:table-cell"> Verwijder </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          <form method="POST">
+
+
+                            <tr>
+                                <td>
+                                    <a href="#">
+                                    <p class="mb-2 md:ml-4"></p>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="#">
+                                    <p class="mb-2 md:ml-4"></p>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="#">
+                                    <p class="mb-4 :ml-1">    €</p>
+                                    </a>
+                                </td>
+</form>
+                              <td class="hidden text-right md:table-cell">
+                                <form action="" method="POST">
+                                  @method('delete')
+                                    @csrf
+                                  <button class="px-4 py-2 text-white bg-red-700">x</button>
+                              </form>
+
+                              </td>
+                            </tr>
+
+                          </tbody>
+                        </table>
+
+                      </div>
                     </div>
-                    <div class="order-item-price">
-                        <p>€{{ number_format($orderitem->price(), 2, ",", ".") }}</p>
-                    </div>
-                </div>
-            @endforeach
-            <div class="order-pricetotal">
-                <p>Totaalprijs: €{{ number_format($order->price(), 2, ",", ".")}}</p>
-                @if($order->status->id != 4 && $order->status->id != 5 && $order->status->id != 6)
-                <form method="POST" action="{{route('order.update', $order->id)}}">
-                    @csrf
-                    @method('PUT')
-                    <button type="submit"class="order-item-delete">Bestelling annuleren</button>
-                </form>
-                @endif
+                  </div>
             </div>
-        @endif
-    </div>
-</main>
-@endsection
+        </main>
+    @endsection

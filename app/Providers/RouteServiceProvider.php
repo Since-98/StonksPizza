@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
-{
+{protected $namespace = 'App\Http\Controllers';
     /**
      * The path to your application's "home" route.
      *

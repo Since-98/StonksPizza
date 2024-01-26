@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class medewerker extends Model
 {
     use HasFactory;
+    protected $fillable = ['voornaam', 'achternaam', 'inkomen', 'functie'];
 
-    
 }
