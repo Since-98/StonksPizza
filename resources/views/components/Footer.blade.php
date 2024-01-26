@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-W4QY54xVRfHsRwlVhvOG+CpZbS8P3z5zjwkoTfkh+Jz4t50pzjjI6Cd2eh2KRdkLmf5dT2Fd8A8eylB6ztPLuA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<footer class="bg-gray-800 text-white py-8">
+<footer class="bg-green-600 text-white py-8">
     <div class="container mx-auto flex justify-between">
         <div class="footer-section">
             <h3 class="text-lg font-bold mb-4">Contact Us</h3>

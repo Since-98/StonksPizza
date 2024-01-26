@@ -4,21 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>stonk's Pizza</title>
+    @vite('resources/css/app.css')
     @include('components.header')
 </head>
 <body >
 
-        <div class="container mx-auto flex items-center justify-between">
-            <div class="w-1/2">
-              <h6 class="text-6xl"><em>Are you hungry?</em></h6>
-              <h1 class="text-6xl  font-bold">Don't wait</h1>
-              <button class="px-6 py-2 rounded-full text-white font-bold mt-4 btn-primary">Order Now</button>
-            </div>
-            <div>
-                <img src="https://img.freepik.com/free-photo/hawaiian-pizza_1203-2455.jpg?size=626&ext=jpg&ga=GA1.1.1412446893.1704931200&semt=ais" alt="">
-            </div>
-        </div>
-    </section>
+       
     <section class="menu container mx-auto py-8">
         <h1 class="text-xl font-bold mb-8">All pizzas</h1>
         <div class="grid grid-cols-4 col-gap-12 row-gap-18">

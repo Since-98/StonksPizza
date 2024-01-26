@@ -1,10 +1,15 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\PizzaController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\menuController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PizzaController;
+use App\Models\User;
+use App\Models\Customer;
+use Carbon\Carbon;
+use Carbon\CarbonPeriod;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,11 +27,13 @@ use App\Http\Controllers\menuController;
 Route::get('/', function () {
     return view('welcome');
   });
-
 Route::get('home', [HomeController::class, 'home'])->name('home');
-Route::get('/index', [menuController::class, 'index']);
-Route::get('/order/create', 'OrderController@create')->name('order.create');
-Route::get('/pizzas', [PizzaController::class, 'index'])->name('pizzas.index');
+Route::get('/pizza', [PizzaController::class, 'index'])->name('pizza');
+Route::get('/shopping-cart', [ShoppingCartController::class, 'index'])->name('shopping.cart');
+Route::get('/order/create', [OrderController::class, 'create'])->name('order.create');
+Route::resource('order', OrderController::class)->middleware('auth');
+
+
 
 
 Route::get('/dashboard', function () {
