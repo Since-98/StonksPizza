@@ -8,6 +8,7 @@ return new class extends Migration
 {
     public function up()
     {
+        Schema::dropIfExists('cart_items');
         Schema::create('cart_items', function (Blueprint $table) {
             $table->id();
 
@@ -21,6 +22,6 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('cart_items');
+
     }
 };

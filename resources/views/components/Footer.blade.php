@@ -5,7 +5,7 @@
     <div class="container mx-auto flex justify-between">
         <div class="footer-section">
             <h3 class="text-lg font-bold mb-4">Contact Us</h3>
-            <a href="#">CONTACT</a>
+            <a href="{{ url('contact') }}">CONTACT</a>
             <p>Email: info@stonkspizza.com</p>
             <p>Phone: +1 (555) 123-4567</p>
         </div>

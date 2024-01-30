@@ -10,7 +10,8 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    { Schema::create('PizzaIngredient', function (Blueprint $table){
+    {   Schema::dropIfExists('_pizza_ingredient');
+        Schema::create('PizzaIngredient', function (Blueprint $table){
         $table->id('pizzaingredientid')->unsigned();
         $table->string('maat');
         $table->foreignId('ingredientid')->index()->references('ingredientid')->on('Ingredient');
@@ -22,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('_pizza_ingredient');
+
     }
 };

@@ -67,14 +67,7 @@ class Menu extends Seeder
             'plaatje' => 'https://img.freepik.com/premium-psd/tasty-hawaiian-pizza-isolated-transparent-background_927015-1116.jpg' // Replace this with the actual image URL
         ]);
 
-        DB::table('menu')->insert([
-            'pizza' => "BBQ Chicken",
-            'hoeveelheid' => "1",
-            'ingrediënten' => "barbecue sauce, fish, red onions",
-            'prijs' => '17',
-            'grootte' => 'small',
-            'plaatje' => 'https://static.vecteezy.com/system/resources/previews/021/311/744/original/pizza-transparent-background-png.png' // Replace this with the actual image URL
-        ]);
+
 
         DB::table('menu')->insert([
             'pizza' => "pizza shoarma",
@@ -84,6 +77,35 @@ class Menu extends Seeder
             'grootte' => 'small',
             'plaatje' => 'https://static.vecteezy.com/system/resources/previews/021/311/744/original/pizza-transparent-background-png.png' // Replace this with the actual image URL
         ]);
+
+
+DB::table('menu')->insert([
+    'pizza' => "Veggie Supreme",
+    'hoeveelheid' => "1",
+    'ingrediënten' => "mushrooms, bell peppers, olives, onions, tomatoes",
+    'prijs' => '15',
+    'grootte' => 'medium',
+    'plaatje' => 'https://example.com/veggie-supreme.jpg' // Replace this with the actual image URL
+]);
+
+DB::table('menu')->insert([
+    'pizza' => "Meat Lovers",
+    'hoeveelheid' => "1",
+    'ingrediënten' => "pepperoni, sausage, bacon, ham",
+    'prijs' => '18',
+    'grootte' => 'large',
+    'plaatje' => 'https://example.com/meat-lovers.jpg' // Replace this with the actual image URL
+]);
+
+DB::table('menu')->insert([
+    'pizza' => "Seafood Delight",
+    'hoeveelheid' => "1",
+    'ingrediënten' => "shrimp, clams, calamari, garlic",
+    'prijs' => '20',
+    'grootte' => 'medium',
+    'plaatje' => 'https://thumbs.dreamstime.com/b/delicious-pizza-seafood-wooden-stand-top-view-70767069.jpg' // Replace this with the actual image URL
+]);
+
 
     }
 }

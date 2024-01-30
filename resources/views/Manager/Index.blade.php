@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    @include('components.header')
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Employee Management System</title>
 
+<head>
+    <form method="get" action="{{ route('home') }}">
+    </form>
+    <form method="POST" action="{{ route('logout') }}">
+        @csrf
+
+        <x-responsive-nav-link :href="route('logout')"
+                onclick="event.preventDefault();
+                            this.closest('form').submit();">
+            {{ __('Log Out') }}
+        </x-responsive-nav-link>
+    </form>
+    <meta charset="UTF-8">
+    <title>Employee Management System</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -19,9 +27,9 @@
             max-width: 800px;
             margin: 40px auto;
             padding: 20px;
-            background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
         }
 
         h1 {
@@ -32,7 +40,7 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
+            margin-top: 320px;
         }
 
         th, td {
@@ -42,7 +50,12 @@
         }
 
         th {
-            background-color: #f2f2f2;
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        td {
+            background-color: #ecf0f1;
         }
 
         button {
@@ -55,6 +68,8 @@
             font-size: 16px;
             margin-top: 20px;
             transition: background-color 0.3s;
+            display: block;
+            margin: 20px auto;
         }
 
         button:hover {
@@ -71,24 +86,25 @@
         }
     </style>
 </head>
+
 <body>
+    <div class="container">
+        <h1>Employee List</h1>
 
-<div class="container">
-    <h1>Employee List</h1>
-
-    <table border="2">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Income</th>
-                <th>Position</th>
-                <th>Edit</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($medewerkers as $medewerker)
+        <table border="2">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Income</th>
+                    <th>Position</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Auth::check())
+                @foreach ($medewerkers as $medewerker)
                 <tr>
                     <td>{{$medewerker->id}}</td>
                     <td>{{$medewerker->Voornaam}}</td>
@@ -97,16 +113,11 @@
                     <td>{{$medewerker->Functie}}</td>
                     <td><a href="{{route('Manager.Edit', ['medewerker' => $medewerker])}}">Edit</a></td>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
-
-    <button onclick="window.location='{{ route('Manager.create') }}'">Create New Employee</button>
-</div>
-
-
-
-
-</body>
-@include('components.footer')
-</html>
+                @endforeach
+            </tbody>
+        </table>
+        <button onclick="window.location='{{ route('Manager.create') }}'">Create New Employee</button>
+        @endif
+    </div>
+    </body>
+    </html>

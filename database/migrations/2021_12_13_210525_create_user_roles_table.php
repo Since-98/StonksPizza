@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('user_roles');
         Schema::create('user_roles', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_roles');
+
     }
 };

@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('ingredients_orderitems');
         Schema::create('ingredient_orderitem', function (Blueprint $table) {
             $table->id();
             $table->foreignId('orderitem_id')->nullable(true)->references('id')->on('orderitems')->cascadeOnDelete();
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ingredients_orderitems');
+        
     }
 };

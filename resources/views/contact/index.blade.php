@@ -1,7 +1,6 @@
 <!-- resources/views/contact/index.blade.php -->
+@extends('layouts.app-layout')
 @include('components.header')
-@extends('layouts.app')
-
 @section('content')
     <div class="container">
         <div class="card">
@@ -11,7 +10,11 @@
             <div class="card-body">
                 <form action="{{ route('contact.submit') }}" method="post">
                     @csrf
-
+                    @if(session('success'))
+                    <script>
+                        alert('we nemen contact met uw zo snel mogelijk', 'Message sent successfully!');
+                    </script>
+                @endif
                     <div class="mb-3">
                         <label for="name" class="form-label">Name:</label>
                         <input type="text" name="name" id="name" class="form-control" required>
@@ -32,25 +35,21 @@
             </div>
         </div>
     </div>
-
     <style>
-        /* Style for the card container */
 .container {
     margin-top: 50px;
 }
 
-/* Style for the form */
 .card {
     max-width: 500px;
     margin: auto;
 }
 
-/* Style for form labels */
 .form-label {
     font-weight: bold;
 }
 
-/* Style for form input and textarea */
+
 .form-control {
     width: 100%;
     padding: 10px;
@@ -58,7 +57,7 @@
     box-sizing: border-box;
 }
 
-/* Style for the submit button */
+
 .btn-primary {
     background-color: #007bff;
     color: #fff;
@@ -67,7 +66,6 @@
     cursor: pointer;
 }
 
-/* Style for the submit button on hover */
 .btn-primary:hover {
     background-color: #0056b3;
 }

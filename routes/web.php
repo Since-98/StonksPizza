@@ -2,14 +2,15 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\DrinkController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BestellingController;
 use App\Http\Controllers\menuController;
 use App\Http\Controllers\WinkelmandjeController;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\PizzaController;
 use App\Http\Controllers\ContactController;
-
 use App\Http\Controllers\MedewerkerController;
 use App\Models\User;
 use App\Models\Customer;
@@ -36,12 +37,38 @@ Route::get('/', function () {
 
   Route::get('/dashboard', function () {
     return view('home');
+
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function (){
 Route::get('manager', [MedewerkerController::class, 'index'])->name('manager');
-Route::get('/manager/create',[MedewerkerController::class, 'create'])->name('Manager.create');
- Route::post('/manager',[MedewerkerController::class, 'store'])->name('Manager.Store');
- Route::get('/manager/{medewerker}/edit',[MedewerkerController::class, 'edit'])->name('Manager.Edit');
- Route::put('/manager/update',[MedewerkerController::class, 'update'])->name('Manager.Update');
+
+    Route::get('/manager/create',[MedewerkerController::class, 'create'])->name('Manager.create');
+     Route::post('/manager',[MedewerkerController::class, 'store'])->name('Manager.Store');
+     Route::get('/manager/{medewerker}/edit',[MedewerkerController::class, 'edit'])->name('Manager.Edit');
+     Route::put('/manager/update',[MedewerkerController::class, 'update'])->name('Manager.Update');
+});
+
+Route::get('bestel', [BestellingController::class, 'index'])->name('bestellingen');
+Route::get('/bestel/{bestelling}/edit',[BestellingController::class, 'edit'])->name('bestellingen.Edit');
+Route::put('/bestel/update',[BestellingController::class, 'update'])->name('bestellingen.Update');
+Route::post('/bestelling/cancel/{id}', 'BestellingController@cancelOrder')->name('bestelling.cancel');
+Route::get('/', function () {
+   return view('welcome');
+ });
+ Route::get('/dashboard', function () {
+   return view('home');
+})->middleware(['auth', 'verified'])->name('dashboard');
+ Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+ Route::get('/admin/resetpassword/{id}', [AdminController::class, 'resetpassword'])->name('admin.resetpassword');
+ Route::put('/admin/updatepassword/{id}', [AdminController::class, 'updatepassword'])->name('admin.updatepassword');
+ Route::get('home', [HomeController::class, 'index'])->name('home');
+// routes/web.php
+
+Route::get('/update-order-status/{id}', 'OrderController@updateStatus')->name('update-order-status');
+Route::get('/drinks', [DrinkController::class, 'index'])->name('drinks');
+
+
 
  Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
 

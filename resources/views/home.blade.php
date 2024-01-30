@@ -1,5 +1,5 @@
 @extends('layouts.app-layout')
-@include('components.header')
+
 
 @section('content')
 <!-- Hero Section -->
@@ -12,7 +12,7 @@
             <div class="flex items-center justify-center space-x-4">
                 <a href="{{ route('menu') }}" class="bg-green-500 text-white py-6 px-8 rounded-full font-semibold hover:bg-green-400 transition duration-300">🛵Order Online</a>
                 <p class="text-sm text-white-300">or</p>
-                <a href="{{ route('menu') }}" class="bg-yellow-500 text-black py-6 px-8 rounded-full font-semibold hover:bg-yellow-400 transition duration-300">
+                <a href="{{('menu')}}" class="bg-yellow-500 text-black py-6 px-8 rounded-full font-semibold hover:bg-yellow-400 transition duration-300">
                     🏡 Pick Up</a>
             </div>
         </div>
@@ -20,7 +20,6 @@
     <img src="Photos\0006_Foorn_HeroSingleItemsSquare-21.jpg" class="hero-image object-cover w-full h-full" alt="Pizza Hero Image">
 </div>
 
-<!-- Features Section -->
 <div class="features-section container mx-auto mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
     @php
     $features = [
@@ -58,5 +57,5 @@
     @endforeach
 </div>
 
-@include('components.footer')
+
 @endsection

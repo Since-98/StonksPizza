@@ -11,25 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::dropIfExists('cart_items');
-        Schema::create('cart_items', function (Blueprint $table) {
+        Schema::dropIfExists('bestellingen');
+
+        Schema::create('bestellingen', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('menu_id')->constrained('menus');
-            $table->string('pizza');
-            $table->string('grootte');
-            $table->integer('quantity');
-            $table->decimal('prijs')->default(0.0);
+            $table->string("klantaccount");
+            $table->string("menu");
+            $table->integer("TotalePrijs");
+            $table->date("datum");
+            $table->string("status");
             $table->timestamps();
         });
     }
-
-
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-
+        Schema::dropIfExists('bestellingen');
     }
 };

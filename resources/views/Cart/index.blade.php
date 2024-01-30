@@ -1,5 +1,4 @@
 @extends('layouts.app-layout')
-@include('components.header')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 @section('content')
 
@@ -17,7 +16,6 @@
                 <div class="p-4 mb-3 bg-white-400 rounded">
                     <h1 class="text-3xl text-white-800">Je winkelwagentje is leeg</h1>
                     <img src="Photos\empty-cart.png" alt="">
-
                 </div>
                 @else
                 <h3 class="text-3xl text-bold">Details bestelling</h3>
@@ -34,6 +32,7 @@
                                 <th class="hidden text-right md:table-cell">Grootte</th>
                                 <th class="hidden text-right md:table-cell">Prijs</th>
                                 <th class="hidden text-right md:table-cell">Aantal</th>
+                                <th class="hidden text-right md:table-cell">Status</th>
                                 <th class="hidden text-right md:table-cell">Verwijder</th>
                             </tr>
                         </thead>
@@ -50,24 +49,27 @@
                                 $totaal += $totaalItem;
                                 $totalQuantity += $item->quantity; // Accumulate quantity
                                 @endphp
-                             <td class="hidden text-right md:table-cell">
-                                <span class="text-sm font-medium lg:text-base">
-                                    @if($item->grootte == 0.8)
-                                        Small
-                                    @elseif($item->grootte == 1)
-                                        Medium
-                                    @elseif($item->grootte == 1.2)
-                                        Large
-                                    @else
-                                        {{ $item->grootte }}
-                                    @endif
-                                </span>
-                            </td>
+                                <td class="hidden text-right md:table-cell">
+                                    <span class="text-sm font-medium lg:text-base">
+                                        @if($item->grootte == 0.8)
+                                            Small
+                                        @elseif($item->grootte == 1)
+                                            Medium
+                                        @elseif($item->grootte == 1.2)
+                                            Large
+                                        @else
+                                            {{ $item->grootte }}
+                                        @endif
+                                    </span>
+                                </td>
                                 <td class="hidden text-right md:table-cell">
                                     <span class="text-sm font-medium lg:text-base">€{{ $item->prijs }}</span>
                                 </td>
                                 <td class="hidden text-right md:table-cell">
                                     <span class="text-sm font-medium lg:text-base">{{ $item->quantity }}</span>
+                                </td>
+                                <td class="hidden text-right md:table-cell">
+                                    <span class="text-sm font-medium lg:text-base">{{ $item->status }}</span>
                                 </td>
                                 <td class="hidden text-right md:table-cell">
                                     <form action="{{ route('cart.destroy', ['id' => $item->id]) }}" method="POST">
@@ -90,7 +92,9 @@
                         <input type="hidden" name="groote" value="{{ $item->grootte }}">
                         <input type="hidden" name="totaalprijs" value="{{ $totaal }}">
                         @endforeach
-                        <button class="px-10 py-2 text-white bg-green-600 rounded">Bestellen</button>
+                        <button class="px-10 py-2 text-white bg-gray-600 rounded">
+                            <a href="{{ route('bestellingen') }}" class="text-white">Bestellen</a>
+                        </button>
                     </p>
                 </div>
                 @endif
@@ -98,5 +102,5 @@
         </div>
     </div>
 </main>
-@include('components.footer')
+
 @endsection

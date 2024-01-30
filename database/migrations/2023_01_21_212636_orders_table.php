@@ -11,17 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::dropIfExists('ingredienten');
-        Schema::create('ingredienten', function (Blueprint $table) {
+        Schema::dropIfExists('orders');
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->foreignID('klantid');
             $table->string('name');
-            $table->decimal('price', 8, 2); // Adjust the precision and scale based on your needs
-            $table->integer('quantity');
-            $table->unsignedBigInteger('unit_id');
-            $table->foreign('unit_id')->references('id')->on('units'); // Assuming you have a 'units' table
+            $table->string('groote');
+            $table->string('totaalprijs');
+            $table->string('status')->default('besteld');
             $table->timestamps();
-        });
-    }
+    });
+}
 
     /**
      * Reverse the migrations.
