@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::dropIfExists('bestellingen');
-
-        Schema::create('bestellingen', function (Blueprint $table) {
+        Schema::create('bestellingen_cart_items', function (Blueprint $table) {
             $table->id();
-            $table->date("datum")->default(now());
-            $table->string("status")->nullable(); 
+
+            // Add any additional columns you need for the pivot table here
             $table->timestamps();
 
+            $table->foreignId('bestelling_id')->references('id')->on('bestellingen')->onDelete('cascade');
+            $table->foreignId('cart_items_id')->references('id')->on('cart')->onDelete('cascade');
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bestellingen');
+        Schema::dropIfExists('bestellingen_cart_items');
     }
 };

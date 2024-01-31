@@ -5,7 +5,7 @@
     <nav class="main-nav">
         <ul>
             <li><a href="{{ route('home') }}">Home</a></li>
-            <li><a href="{{ route('bestellingen') }}">Order</a></li>
+            <li><a href="{{ route('bestellingen.index')}}">Order</a></li>
             <li><a href="{{ route('menu') }}">Menu</a></li>
             <li><a href="{{ route('drinks') }}">Drinks</a></li> <!-- Add a link to the Drinks page -->
             <li><a href="{{ url('/manager') }}">Manager</a></li>

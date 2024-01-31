@@ -14,26 +14,28 @@
 
                 @if ($cartItems->isEmpty())
                 <div class="p-4 mb-3 bg-white-400 rounded">
-                    <h1 class="text-3xl text-white-800">Je winkelwagentje is leeg</h1>
+                    <h1 class="text-3xl text-white-800">
+                        your StonksPizza  Cart is empty</h1>
+                        <a href="{{ route('menu') }}" class="text-blue-500">Go to Menu</a>
                     <img src="Photos\empty-cart.png" alt="">
+
                 </div>
                 @else
                 <h3 class="text-3xl text-bold">Details bestelling</h3>
                 <div class="flex-4">
                     @php
                     $totaal = 0;
-                    $totalQuantity = 0; // Initialize total quantity
+                    $totalQuantity = 0; // total quantity
                     @endphp
 
                     <table class="w-full text-sm lg:text-base" cellspacing="0">
                         <thead>
                             <tr class="h-12 uppercase">
                                 <th class="text-left">Name</th>
-                                <th class="hidden text-right md:table-cell">Grootte</th>
-                                <th class="hidden text-right md:table-cell">Prijs</th>
-                                <th class="hidden text-right md:table-cell">Aantal</th>
-                                <th class="hidden text-right md:table-cell">Status</th>
-                                <th class="hidden text-right md:table-cell">Verwijder</th>
+                                <th class="hidden text-right md:table-cell">size</th>
+                                <th class="hidden text-right md:table-cell">price</th>
+                                <th class="hidden text-right md:table-cell">quantity</th>
+                                <th class="hidden text-right md:table-cell">Delete order</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,7 +49,7 @@
                                 @php
                                 $totaalItem = $item->prijs * $item->grootte;
                                 $totaal += $totaalItem;
-                                $totalQuantity += $item->quantity; // Accumulate quantity
+                                $totalQuantity += $item->quantity; //
                                 @endphp
                                 <td class="hidden text-right md:table-cell">
                                     <span class="text-sm font-medium lg:text-base">
@@ -68,9 +70,7 @@
                                 <td class="hidden text-right md:table-cell">
                                     <span class="text-sm font-medium lg:text-base">{{ $item->quantity }}</span>
                                 </td>
-                                <td class="hidden text-right md:table-cell">
-                                    <span class="text-sm font-medium lg:text-base">{{ $item->status }}</span>
-                                </td>
+
                                 <td class="hidden text-right md:table-cell">
                                     <form action="{{ route('cart.destroy', ['id' => $item->id]) }}" method="POST">
                                         @method('delete')
@@ -92,9 +92,11 @@
                         <input type="hidden" name="groote" value="{{ $item->grootte }}">
                         <input type="hidden" name="totaalprijs" value="{{ $totaal }}">
                         @endforeach
-                        <button class="px-10 py-2 text-white bg-gray-600 rounded">
-                            <a href="{{ route('bestellingen') }}" class="text-white">Bestellen</a>
-                        </button>
+                        <form action="{{ route('order.store') }}" method="POST">
+                            @csrf
+
+                            <button type="submit" class="px-10 py-2 text-white bg-gray-600 rounded text-white">Bestellen</button>
+                        </form>
                     </p>
                 </div>
                 @endif

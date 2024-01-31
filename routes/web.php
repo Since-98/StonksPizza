@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BestellingController;
 use App\Http\Controllers\menuController;
+
 use App\Http\Controllers\WinkelmandjeController;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\PizzaController;
@@ -48,11 +49,20 @@ Route::get('manager', [MedewerkerController::class, 'index'])->name('manager');
      Route::get('/manager/{medewerker}/edit',[MedewerkerController::class, 'edit'])->name('Manager.Edit');
      Route::put('/manager/update',[MedewerkerController::class, 'update'])->name('Manager.Update');
 });
+Route::get('bestel', [BestellingController::class, 'index'])->name('bestellingen.index2');
+Route::get('/bestel/{bestelling}/edit', [BestellingController::class, 'edit'])->name('bestellingen.Edit');
+Route::put('/bestel/update', [BestellingController::class, 'update'])->name('bestellingen.Update'); // Change from post to put
+Route::post('/bestel/cancel/{id}', [BestellingController::class, 'cancelOrder'])->name('bestelling.cancel'); // Change to post
+Route::get('/bestellingen/edit/{id}', [BestellingController::class, 'edit'])->name('bestellingen.edit');
+Route::get('/bestellingen/{id}', [BestellingController::class, 'show'])->name('bestellingen.show'); // Change from post to get
+Route::post('/bestellingen', [BestellingController::class, 'storeOrder'])->name('order.store');
+Route::get('/bestellingen', [BestellingController::class, 'index'])->name('bestellingen.index');
+Route::get('/order/{orderId}', [BestellingController::class, 'showOrderDetails']);
+Route::delete('/bestellingen/{id}', [BestellingController::class, 'destroy'])->name('bestellingen.destroy');
+// routes/web.php
 
-Route::get('bestel', [BestellingController::class, 'index'])->name('bestellingen');
-Route::get('/bestel/{bestelling}/edit',[BestellingController::class, 'edit'])->name('bestellingen.Edit');
-Route::put('/bestel/update',[BestellingController::class, 'update'])->name('bestellingen.Update');
-Route::post('/bestelling/cancel/{id}', 'BestellingController@cancelOrder')->name('bestelling.cancel');
+Route::get('/order/get-status/{id}', [OrderController::class, 'getStatus'])->name('order.getStatus');
+
 Route::get('/', function () {
    return view('welcome');
  });
@@ -67,8 +77,6 @@ Route::get('/', function () {
 
 Route::get('/update-order-status/{id}', 'OrderController@updateStatus')->name('update-order-status');
 Route::get('/drinks', [DrinkController::class, 'index'])->name('drinks');
-
-
 
  Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
 

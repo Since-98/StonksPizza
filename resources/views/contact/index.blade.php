@@ -1,6 +1,5 @@
 <!-- resources/views/contact/index.blade.php -->
 @extends('layouts.app-layout')
-@include('components.header')
 @section('content')
     <div class="container">
         <div class="card">
@@ -70,5 +69,4 @@
     background-color: #0056b3;
 }
     </style>
-    @include('components.footer')
 @endsection

@@ -17,7 +17,7 @@ class ContactController extends Controller
 public function submit(Request $request)
 {
 
-    return redirect()->route('contact.index')->with('success', 'Message sent successfully!');
+    return redirect()->route('home')->with('success', 'Message sent successfully!');
 
 
 }

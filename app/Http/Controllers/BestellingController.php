@@ -1,75 +1,64 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Bestellingen;
+use App\Models\CartItem;
 use Illuminate\Http\Request;
 
 class BestellingController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
+      public function index()
+    {
+        $cartItems = CartItem::all();
+        $totaal = $cartItems->sum('prijs');
 
-        /**
-         * Display a listing of the resource.
-         */
-        public function index()
-        {
+        $bestellingen = Bestellingen::all();
 
+        foreach ($bestellingen as $bestelling) {
+            $bestelling->totaalprijs = $bestelling->prijs;
+            return view('Bestellingen.Bestel', ['bestellingen' => $bestellingen, 'cartItems' => $cartItems, 'totaal' => $totaal]);
 
-            $bestellingen = bestellingen::all();
-            //dd($bestellingen);
-            return view('Bestellingen.Bestel' , compact('bestellingen'));
-
-        }
-
-        public function show($orderId)
-        {
-            // Fetch the order details based on $orderId
-            $bestellingen = bestellingen::find($bestellingid);
-
-            // Return a view with order details
-            return view('besBestellingentel.show', ['bestellingen' => $bestellingen]);
-        }
-
-        /**
-         * Show the form for editing the specified resource.
-         */
-        public function edit(string $id)
-        {
-            $bestelling = Bestellingen::find($id);
-
-    // Check if the bestelling exists
-    if (!$bestelling) {
-        // Handle the case where the bestelling is not found, for example, redirect back
-        return redirect()->back()->with('error', 'Bestelling not found');
+    }
     }
 
-    // Pass the $bestelling variable to the view
-    return view('Bestellingen.Edit', ['bestelling' => $bestelling]);
-        }
+    public function show()
+    {
+        /*
+        $bestelling = Bestellingen::find($id);
+        $cartItems = $request->input('cartItems');
+        $totaal = 0;
 
-        /**
-         * Update the specified resource in storage.
-         */
-        public function update(Request $request)
-        {
-            $data = $request->validate([
-                'klantaccount' => 'required',
-                'menu' => 'required',
-                'TotalePrijs' => 'required|numeric',
-                'status' => 'required'
+        $orderDetails = [
+            'items' => $cartItems,
+            'total' => $totaal,
+        ];
 
-            ]);
-           // dd($song);
-            $bestelling = bestellingen::find($request->id);
-            $bestelling->update(['klantaccount' => $request->klantaccount, 'menu' => $request->menu, 'TotalePrijs' => $request->TotalePrijs, 'status' => $request->status ]);
-            return redirect(route('Bestelling.Bestel'))->with('geslaagd', 'verandering toegepast');
-        }
+        return view('Bestellingen.Show', ['bestelling' => $bestelling]);
+        */
+    }
 
-        /**
-         * Remove the specified resource from storage.
-         */
-        public function destroy(string $id) {
+    public function storeOrder(Request $request)
+    {
+        Bestellingen::create([
+            'datum' => now(),
+            'status' => 'Besteld',
 
-        $bestelling = bestellingen::find($id);
+
+        ]);
+
+
+        return redirect()->route('bestellingen.index')->with('success', 'Bestelling geplaatst!');
+    }
+    public function destroy($id)
+    {
+        $bestelling = Bestellingen::find($id);
         $bestelling->delete();
-      return redirect(route('Bestellingen.Bestel'))->with('geslaagd', 'verwijdering toegepast'); }
+
+        return redirect()->route('bestellingen.index')->with('success', 'Bestelling  geannuleerd!');
     }
+}
+

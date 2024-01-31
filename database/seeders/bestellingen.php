@@ -9,11 +9,11 @@ class bestellingen extends Model
 {
     use HasFactory;
     protected $table = 'Bestellingen';
-    protected $fillable = ['datum','totaalprijs', 'status','pizza'];
+    protected $fillable = ['datum', 'status'];
 
-    public function CartItem()
+    public function menu()
     {
-        return $this->belongsToMany(CartItem::class, 'bestellingen_cart_items','bestelling_id', 'cart_items_id');
+        return $this->belongsToMany(Menu::class, 'bestellingen_menu', 'bestelling_id', 'menu_id');
     }
 
     public function totalePrijs(){
